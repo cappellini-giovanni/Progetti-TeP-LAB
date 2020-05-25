@@ -1,0 +1,34 @@
+@startuml
+class UML_negozio {
+    public static void main(String[] args)
+}
+
+class CCLiente {
+    String nome;
+    String email;
+}
+class CCartaCredito {
+    int    numeroCarta;
+    String intestatario;
+    CDate  dataScadenza;
+    String societaEmittente;
+}
+class CDate {
+    int numGiorni;    
+    String toString();
+}
+class COrdine {
+    int    codiceOrdine;
+    int    importoTotale;
+    CDate  dataEffettuazione;
+    CDate  dataConsegna;
+}
+class CProdotto {
+    String nome;
+    String descrizione;
+    String url_fotografia;
+    int    costoUnitario;
+}
+
+
+@enduml
