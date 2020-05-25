@@ -49,8 +49,8 @@
     </Class>
     <Class name="CCliente" package="" visibility="public" xPosition="114.0" yPosition="244.0">
       <Fields>
-        <Field name="nome" type="String" visibility="private"/>
-        <Field name="email" type="String" visibility="private"/>
+        <Field name="username" type="String" visibility="private"/>
+        <Field name="password" type="String" visibility="private"/>
         <Field name="carta" type="CCartaCredito" visibility="private"/>
       </Fields>
       <Constructors/>
@@ -72,7 +72,7 @@
       <Constructors/>
       <Methods/>
     </Class>
-    <Class name="CCommessa" package="" visibility="public" xPosition="519.0" yPosition="475.0">
+    <Class name="CCommessa" package="" visibility="public" xPosition="460.0" yPosition="432.0">
       <Fields>
         <Field name="diploma" type="String" visibility="private"/>
         <Field name="reparto" type="String" visibility="private"/>
@@ -92,21 +92,39 @@
       <Fields/>
       <Constructors/>
       <Methods>
-        <Method name="main" returnType="String" visibility="public">
+        <Method name="main" returnType="String[]" visibility="public">
           <Argument type="String[]" name="args"/>
         </Method>
       </Methods>
     </Class>
+    <Class name="CDipendenti" package="" visibility="public" xPosition="598.0" yPosition="477.0">
+      <Fields>
+        <Field name="elenco" type="CDipendente[]" visibility="private"/>
+        <Field name="numDipendenti" type="int" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="CMagazzaniere" package="" visibility="public" xPosition="197.0" yPosition="419.0">
+      <Fields>
+        <Field name="nome" type="String" visibility="private"/>
+        <Field name="reparto" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
   </ClassDiagramComponents>
   <ClassDiagramRelations>
-    <HasRelation name="dataScadenza" source="CCartaCredito" target="CDate" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="scadenza" source="CProdotto" target="CDate" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="CMagazzaniere" target="CDipendente"/>
     <HasRelation name="lista" source="CClienti" target="CCliente" type="Composition" sourceCardinality="0..1" targetCardinality="0..*" collectionType="List"/>
+    <UseRelation name="prodoto" source="COrdine" target="CProdotto" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="dataConsegna" source="COrdine" target="CDate" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="elenco" source="CDipendenti" target="CDipendente" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
     <IsRelation name="is" source="CCommessa" target="CDipendente"/>
     <HasRelation name="carta" source="CCliente" target="CCartaCredito" type="Aggregation" sourceCardinality="0..1" targetCardinality="0..*" collectionType="List"/>
-    <UseRelation name="prodoto" source="COrdine" target="CProdotto" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <HasRelation name="listaProdotti" source="CCatalogo" target="CProdotto" type="Composition" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
     <HasRelation name="dataEffettuazione" source="COrdine" target="CDate" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..1"/>
-    <HasRelation name="dataConsegna" source="COrdine" target="CDate" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..1"/>
-    <HasRelation name="scadenza" source="CProdotto" target="CDate" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="dataScadenza" source="CCartaCredito" target="CDate" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="listaProdotti" source="CCatalogo" target="CProdotto" type="Composition" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
   </ClassDiagramRelations>
 </ClassDiagram>
